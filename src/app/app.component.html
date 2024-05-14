@@ -1,0 +1,48 @@
+<div class="container border">
+  <h1 style="text-align: center;">ANIMALS</h1>
+  <!-- <mat-form-field class="mb-3">
+    <mat-label>Filter by Group</mat-label>
+    <input matInput (keyup)="applyFilter($event.target)" placeholder="Ex. Mammals, Amphibians, Birds...">
+  </mat-form-field> -->
+
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="table-responsive">
+      <!-- Position Column -->
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="animal">
+        <th mat-header-cell *matHeaderCellDef> Animal </th>
+        <td mat-cell *matCellDef="let element"> {{element.animal}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="botanical name">
+        <th mat-header-cell *matHeaderCellDef> Botanical Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.botanicalName}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="group">
+        <th mat-header-cell *matHeaderCellDef> Group </th>
+        <td mat-cell *matCellDef="let element"> {{element.group}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+
+
+  </div>
+
+</div>
